@@ -9,6 +9,7 @@ Data: 22.07.2022
 */
 
 #include<stdio.h>
+#include<string.h>
 
 typedef struct
 {
@@ -19,7 +20,7 @@ typedef struct
     long long int cpf;
 } Pessoa;
 
-#define QUANTIDADE_DE_PESSOAS 1
+#define QUANTIDADE_DE_PESSOAS 3
 
 int main()
 {
@@ -35,7 +36,7 @@ int main()
     for (i = 0; (i < QUANTIDADE_DE_PESSOAS); i++)
     {
         printf("\nInforme os dados da pessoa(%i): ", i + 1); 
-        scanf("%s %f %f %Lu %c", pessoas[i].nome, &pessoas[i].altura, 
+        scanf("%s%f%f%Lu%c", pessoas[i].nome, &pessoas[i].altura, 
               &pessoas[i].peso, &pessoas[i].cpf, &pessoas[i].sexo);
     }
     printf("\nInforme o CPF da pessoa: ");
@@ -57,11 +58,11 @@ int main()
 
     /* ADIÇÃO */
 
-    for(i = 0; i < QUANTIDADE_DE_PESSOAS; i++){
+    for(i = 0; (i < QUANTIDADE_DE_PESSOAS); i++){
         if(pessoas[i].sexo == 'F'){
             if(pessoas[i].peso < menorPeso){
                 menorPeso = pessoas[i].peso;
-                nomeMulherMenorPeso[200] = pessoas[i].nome;
+                strcpy(nomeMulherMenorPeso, pessoas[i].nome);
             }
         }
         if(pessoas[i].sexo == 'M'){
